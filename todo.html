@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>오늘의 투두</title>
+</head>
+
+<body>
+
+<style>
+    #title {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    .wrap{
+        display: flex;
+    }
+
+    .todo-card {
+        border: 1px solid gray;
+        padding: 2em;
+        /*테두리 안쪽에 거리 두기*/
+        margin: 1em;
+        /*div끼리의 거리두기*/
+        border-radius: 5px;
+    }
+
+    button{
+        width: calc(80% - 20px);
+    }
+
+    button:hover {
+        background-color: orange;
+    }
+
+
+</style>
+    <h1 id="title">오늘 할 일</h1>
+    <div class="wrap" >
+        <div class="todo-card">
+            <h3>고양이 밥주기</h3>
+            <p>고양이 물, 사료 챙겨주기</p>
+            <button onClick="changeBackgroundColor(0)">완료</button>
+        </div>
+    
+        <div class="todo-card">
+            <h3>장보기</h3>
+            <p>토마토, 계란, 초코렛 사기</p>
+            <button>완료</button>
+        </div>
+    </div>
+    
+    <div class="wrap">
+        <div class="todo-card">
+            <h3>코딩하기</h3>
+            <p>리액트 강의 1주차 듣기</p>
+            <button>완료</button>
+        </div>
+        <div class="todo-card">
+            <h3>코딩하기</h3>
+            <p>리액트 강의 1주차 듣기</p>
+            <button>완료</button>
+        </div>
+    </div>
+
+    <script>
+        function sayHello(event){
+            console.log("hello");
+        }
+        
+        function changeBackgroundColor(index){
+            let card = document.getElementsByClassName("todo-card ")[index];
+            card.style.backgroundColor = "gray";
+        }
+        const wraps = document.getElementsByClassName("wrap");
+
+        console.log(wraps);
+
+        const title = document.getElementById("title");
+        console.log(title);
+        title.style.backgroundColor = "yellow"; // 자바스크립트로 css요소 바꾸기.
+
+
+        const buttons = document.getElementsByTagName("button"); //tag 'button'4개를 다 가져왔어.
+        console.log(buttons);
+
+        for(let i=0; i<buttons.length; i++){
+            buttons[i].addEventListener("click", sayHello); //click같은 event를 붙일 때 사용하는 내장함수. 4가지 버튼에 click 이벤트를 붙임.
+        }
+    </script>
+
+</body>
+
+</html>
